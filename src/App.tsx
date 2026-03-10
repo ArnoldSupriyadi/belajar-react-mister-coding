@@ -3,6 +3,7 @@ import './App.css'
 import Avatar from './components/avatar/Avatar'
 import Input from './components/input/Input'
 import Profile from './components/features/Profile'
+import StateInput from './components/features/StateInput'
 
 function App() {
 
@@ -23,7 +24,9 @@ function App() {
           console.log('nomor hp',e.target.value)
         }/>   */}
       <br />
-      <Profile></Profile>
+      <Profile />
+      <br />
+      <StateInput />
     </>
   )
 }
