@@ -3,17 +3,17 @@ import "./Button.css";
 
 type variant = "primary" | "secondary";
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   variant? : variant;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: FC<Props> = ({ label = "Click me Button Now", variant = "primary", onClick }) => {
+const Button: FC<Props> = ({ label = "Click me Button Now", variant = "primary", onClick, ...props }) => {
   const style = "button_" + variant;
 
   return (
-    <button className={style} onClick={onClick}>
+    <button className={style} onClick={onClick} {...props}>
       {label}
     </button>
   )
