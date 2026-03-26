@@ -1,5 +1,5 @@
 import type { FC, InputHTMLAttributes } from 'react';
-type typeInput = "text" | "number" | "password";
+type typeInput = "text" | "number" | "password" | "email";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
     type?: typeInput;
