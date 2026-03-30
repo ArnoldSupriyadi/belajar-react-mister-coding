@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import Button from "../../buttons/Button";
 import Input from "../../input/Input";
 import './LatihanForm.css'
+import { useEffect } from "react";
 
   interface Biodata {
         nama: string;
@@ -18,12 +19,44 @@ export default function LatihanForm() {
     }
     const [form, setForm] = useState<Biodata>(defaultState);
 
+    const [biodatas, setBiodatas] = useState<Biodata[]>();
+
+    const getDataBiodata = async () => {
+        const data = await fetch('http://localhost:3001/biodata', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((res) => {
+            return res.json()
+        })
+        .catch((err) => {});
+        if(data) {
+            setBiodatas(data)
+        }
+    }
+
+    useEffect(() => {
+        getDataBiodata()
+    }, [])
+
     const handleSubmit = (e:FormEvent)=> {
         e.preventDefault();
-        console.log('nama', form.nama)
-        console.log('email', form.email)
-        console.log('phone', form.phone)
-        console.log('form', form)
+        fetch('http://localhost:3001/biodata', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(form),
+        })
+        .then((res) => {
+            // alert("Data berhasil diinputkan")
+            getDataBiodata()
+        })
+        .catch((err) => {
+            alert("Data gagal diinputkan")
+        })
     }
     
     return (
@@ -46,6 +79,17 @@ export default function LatihanForm() {
                     <Button label="Submit" />
                 </div>
             </form>
+
+            <h2>Biodata</h2>
+            <ul>
+                {biodatas?.map((item, index) => (
+                    <li key={index}>
+                        <h3>Nama : {item.nama}</h3>
+                        <h4>Email : {item.email}</h4>
+                        <h4>No. HP : {item.phone}</h4>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }
