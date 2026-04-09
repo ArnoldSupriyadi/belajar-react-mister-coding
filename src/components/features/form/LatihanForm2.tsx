@@ -80,7 +80,7 @@ export default function LatihanForm() {
                 </div>
             </form>
 
-            <h2>Biodata</h2>
+             <h2>Biodata</h2>
             <ul>
                 {biodatas?.map((item, index) => (
                     <li key={index}>
