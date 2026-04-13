@@ -25,11 +25,11 @@ const BiodataForm = () => {
             body: JSON.stringify(form)
         })
             .then((res) => {
-            alert("Post Data berhasil disimpan");
+                alert("Post Data berhasil disimpan");
             getListBiodata();
         })
             .catch((err) => {
-            alert("Post Data gagal disimpan");
+                alert("Post Data gagal disimpan");
         });
     };
 
