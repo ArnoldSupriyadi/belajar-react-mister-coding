@@ -1,32 +1,14 @@
-import './App.css'
-import LatihanForm from './components/features/form/LatihanForm';
-import LatihanForm2 from './components/features/form/LatihanForm2';
-import Input from './components/input/Input';
-import { useState, useEffect } from 'react';
+import Biodata from "./components/features/latihan-usecontext/Biodata";
 
-
-
-function App()  {
-  const [nama, setNama] = useState<string>("");
-
-  useEffect(() => {
-    console.log('name :', nama)
-  }, [nama])
-
+function App() {
   return (
-  
-    <div className='App'>
-    <Input value={nama} placeholder='Masukan Nama Kamu' onChange={(e)=>
-    {
-        setNama(e.target.value)
-    }} />
-    <p>{nama}</p>
-    <button onClick={() => setNama("Jamet")}>Test UseEffect</button>
-        {/* <ContohList /> */}
-        {/* <ContohList2 /> */}
-        {/* <LatihanForm2 /> */}
-    </div>
+    <>
+      <div className="App">
+        <Biodata />
+
+      </div>
+    </>
   );
 }
 
-export default App
+export default App;

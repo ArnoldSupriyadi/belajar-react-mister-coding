@@ -1,5 +1,5 @@
 export interface Biodata {
     nama: string;
-    umur: number;
-    alamat: string;
+    email: string;
+    phone: string;
 }
