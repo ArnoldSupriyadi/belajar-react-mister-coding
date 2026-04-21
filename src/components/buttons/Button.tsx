@@ -1,19 +1,18 @@
-import type { FC, MouseEventHandler } from "react";
+import type { FC  } from "react";
 import "./Button.css";
 
 type variant = "primary" | "secondary";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props {
   label?: string;
   variant? : variant;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: FC<Props> = ({ label = "Click me Button Now", variant = "primary", onClick, ...props }) => {
+const Button: FC<Props> = ({ label = "Click me Button Now", variant = "primary" }) => {
   const style = "button_" + variant;
 
   return (
-    <button className={style} onClick={onClick} {...props}>
+    <button className={style}>
       {label}
     </button>
   )

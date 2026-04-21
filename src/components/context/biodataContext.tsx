@@ -1,4 +1,5 @@
-import { FC, ReactNode, createContext, useState } from "react";
+import type { FC, ReactNode } from "react";
+import { createContext, useState } from "react";
 import type { Biodata } from "../../model/biodata";
 
 interface biodataContext {

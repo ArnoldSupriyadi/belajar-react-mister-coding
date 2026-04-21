@@ -1,4 +1,5 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import type { FormEvent } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../../components/buttons/Button";
 import Input from "../../../components/input/Input";
 // import "./BiodataForm.css";
@@ -23,11 +24,11 @@ const BiodataForm = () => {
       },
       body: JSON.stringify(form),
     })
-      .then((res) => {
+      .then(() => {
         alert("post data berhasil");
         getListBiodata();
       })
-      .catch((err) => {
+      .catch(() => {
         alert("post data error");
       });
   };
@@ -42,7 +43,7 @@ const BiodataForm = () => {
       .then((res) => {
         return res.json();
       })
-      .catch((err) => {});
+      .catch(() => {});
     if (data) {
       setBiodata(data);
     }

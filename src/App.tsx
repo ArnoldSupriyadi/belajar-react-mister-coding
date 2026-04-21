@@ -1,11 +1,13 @@
-import Biodata from "./components/features/latihan-usecontext/Biodata";
+import TanpaUsememo from "./components/features/latihan-usememo/WithUsememo";
 
 function App() {
   return (
     <>
       <div className="App">
-        <Biodata />
-
+        <h1 className="text-3xl font-bold underline text-blue-600">
+          Tailwind CSS is working!
+        </h1>
+        <TanpaUsememo />
       </div>
     </>
   );

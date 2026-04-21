@@ -31,7 +31,7 @@ export default function LatihanForm() {
         .then((res) => {
             return res.json()
         })
-        .catch((err) => {});
+        .catch(() => {});
         if(data) {
             setBiodatas(data)
         }
@@ -50,11 +50,11 @@ export default function LatihanForm() {
             },
             body: JSON.stringify(form),
         })
-        .then((res) => {
+        .then(() => {
             // alert("Data berhasil diinputkan")
             getDataBiodata()
         })
-        .catch((err) => {
+        .catch(() => {
             alert("Data gagal diinputkan")
         })
     }
